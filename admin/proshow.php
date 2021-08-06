@@ -41,6 +41,9 @@ include ("admin_partial/Aside.php")
                     <hr>
                     <br>
                     <image src="<?php  echo $final['picture']?>"></image>
+                    <hr>
+                    <br>
+
 
 
 

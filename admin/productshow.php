@@ -32,9 +32,14 @@ include ("admin_partial/Aside.php")
                     ?>
                     <a href="proshow.php? pro_id = <?php echo $final['id'] ?>">
                         <h3><?php echo $final["id"]?> : <?php echo $final["name"]?>
-                            <hr>
+
                             <br>
                     </a>
+                    <a href="proupdate.php? up_id = <?php echo $final['id'] ?>">
+                        <button>Update</button> </a>
+                        <a href="prodelete.php? del_id = <?php echo $final['id'] ?>">
+                            <button class="btn btn-danger">Delete</button> </a>
+                        <hr>
                     <?php } ?>
                 </div>
                 <div class="col-sm-3">
