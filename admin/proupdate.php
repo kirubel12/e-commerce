@@ -34,9 +34,9 @@ include ("admin_partial/Aside.php")
                 <div class="col-sm-6">
                     <form role="form" action="productHandler.php" method="post" enctype="multipart/form-data">
                         <?php
-                        $id = $_GET['up_id'];
+                        $new_id = $_GET['up_id'];
                         include ("partials/db.php");
-                        $set = "SELECT * FROM products";
+                        $set = "SELECT * FROM products where id='$new_id'";
                         $result = $conn->query($set);
                         $final = $result->fetch_assoc();
 
@@ -46,11 +46,11 @@ include ("admin_partial/Aside.php")
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Name:</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" name="name" placeholder="Enter name" value="<?php echo $final['name'] ?>">
+                                <input type="text" class="form-control" id="exampleInputEmail1" name="name" placeholder="Enter name" value="<?php echo $final['name']; ?>">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Price</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1" name="price" placeholder="Price">
+                                <input type="text" class="form-control" id="exampleInputPassword1" name="price" placeholder="Price" value="<?php echo $final['price']; ?>">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputDesc">Description:</label>
@@ -97,7 +97,7 @@ include ("admin_partial/Aside.php")
 
                         <div class="box-footer">
                             <input type="hidden" name="form_id" value="<?php echo  $final['id']?>">
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            <button type="submit" name="update" class="btn btn-primary">Update</button>
                         </div>
                     </form>
                 </div>
