@@ -8,9 +8,6 @@ include ("admin_partial/Head.php");
 include ("admin_partial/Header.php");
 include ("admin_partial/Aside.php")
 
-
-
-
 ?>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -25,67 +22,33 @@ include ("admin_partial/Aside.php")
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <div class="row">
-                <div class="col-sm-3">
+                <div class="col-sm-9">
+                    <?php
+                    include ("partials/db.php");
+                    $id = $_GET['pro_id'];
+
+                    $set = "SELECT * FROM products ";
+                    $result = $conn->query($set);
+                    $final = $result->fetch_assoc();
+                    ?>
+                    <h2>Name: <?php echo $final['name']?> </h2>
+                    <hr>
+                    <br>
+                    <h3>Price: <?php echo $final['price']?> </h3>
+                    <hr>
+                    <br>
+                    <h3>Description: <?php echo $final['description']?> </h3>
+                    <hr>
+                    <br>
+                    <image src="<?php  echo $final['picture']?>"></image>
+
+
+
+                    <h3><?php echo $final["id"]?> : <?php echo $final["name"] ?>
 
                 </div>
-                <div class="col-sm-6">
-                    <form role="form" action="productHandler.php" method="post" enctype="multipart/form-data">
-                        <div class="box-body">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Name:</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" name="name" placeholder="Enter name">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Price</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1" name="price" placeholder="Price">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputDesc">Description:</label>
-                                <textarea type="text" class="form-control" id="exampleInputDesc" name="description" placeholder="Description"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="picture">File input</label>
-                                <input type="file" id="picture" name="file">
+                <div class="col-sm-3">
 
-                                <p class="help-block">Example block-level help text here.</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputcatid">Category id:</label>
-                                <options type="" class="form-control" id="exampleInputcatid" name="category_id" placeholder="cat id">
-
-
-
-                                    <                                <select name="category_id" id="">
-                                        <?php
-                                        $host = "localhost";
-                                        $username = "root";
-                                        $password = "";
-                                        $dbname = "e-com";
-
-                                        $conn = mysqli_connect($host,$username, $password, $dbname);
-                                        $sql = "SELECT * FROM categories";
-                                        $result = mysqli_query($conn, $sql);
-                                        while($row = mysqli_fetch_assoc($result)){
-                                            echo "<option value=".$row['id'].">".$row['name']."</option>";
-
-                                        }
-                                        ?>
-
-                                    </select>
-
-
-                                    ?>
-
-                            </div>
-
-                        </div>
-                        <!-- /.box-body -->
-
-                        <div class="box-footer">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                    </form>
                 </div>
             </div>
 

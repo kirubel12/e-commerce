@@ -30,11 +30,12 @@ include ("admin_partial/Aside.php")
                     while($final = $result->fetch_assoc()){
 
                     ?>
-                    <a href="proshow.php ? pro_id = <?php echo $final['id'] ?>">
+                    <a href="proshow.php? pro_id = <?php echo $final['id'] ?>">
                         <h3><?php echo $final["id"]?> : <?php echo $final["name"]?>
                             <hr>
                             <br>
                     </a>
+                    <?php } ?>
                 </div>
                 <div class="col-sm-3">
 
