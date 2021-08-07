@@ -3,9 +3,6 @@
 
 <?php
 
-
-
-
 include ("../partials/db.php");
 include ("admin_partial/Head.php");
 include ("admin_partial/Header.php");
@@ -32,10 +29,15 @@ include ("admin_partial/Aside.php")
 
                 </div>
                 <div class="col-sm-6">
-                    <form role="form" action="productHandler.php" method="post" enctype="multipart/form-data">
+                    <form role="form" action="updateHandler.php" method="post" enctype="multipart/form-data">
                         <?php
                         $new_id = $_GET['up_id'];
-                        include ("partials/db.php");
+                        $host = "localhost";
+                        $username = "root";
+                        $password = "";
+                        $dbname = "e-com";
+
+                        $conn = mysqli_connect($host,$username, $password, $dbname);
                         $set = "SELECT * FROM products where id='$new_id'";
                         $result = $conn->query($set);
                         $final = $result->fetch_assoc();
@@ -46,19 +48,19 @@ include ("admin_partial/Aside.php")
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Name:</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" name="name" placeholder="Enter name" value="<?php echo $final['name']; ?>">
+                                <input type="text" class="form-control" id="exampleInputEmail1" name="name" placeholder="Enter name" value="<?php echo $final['name'] ?>">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Price</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1" name="price" placeholder="Price" value="<?php echo $final['price']; ?>">
+                                <input type="text" class="form-control" id="exampleInputPassword1" name="price" placeholder="Price" value="<?php echo $final['price'] ?>">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputDesc">Description:</label>
-                                <textarea type="text" class="form-control" id="exampleInputDesc" name="description" placeholder="Description"></textarea>
+                                <textarea type="text" class="form-control" id="exampleInputDesc" name="description" placeholder="Description" value="<?php echo $final['description']?>"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="picture">File input</label>
-                                <input type="file" id="picture" name="file">
+                                <input type="file" id="picture" name="file" value="<?php echo $final['picture'] ?>">
 
                                 <p class="help-block">Example block-level help text here.</p>
                             </div>
