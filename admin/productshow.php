@@ -23,6 +23,9 @@ include("admin_partial/Aside.php")
             <section class="content-header">
                 <div class="row">
                     <div class="col-sm-9">
+                        <a href="products.php">
+                            <button>Add product</button>
+                        </a>
                         <?php
                         include("partials/db.php");
                         $set = "SELECT * FROM products ";
@@ -30,15 +33,16 @@ include("admin_partial/Aside.php")
                         while ($final = $result->fetch_assoc()) {
 
                         ?>
+
                             <a href="proshow.php? pro_id = <?php echo $final['id'] ?>">
                                 <h3><?php echo $final["id"] ?> : <?php echo $final["name"] ?>
 
                                     <br>
                             </a>
-                            <a href="proupdate.php? up_id = <?php echo $final['id'] ?>">
+                            <a href="proupdate.php?up_id=<?php echo $final['id'] ?>">
                                 <button class="btn btn-primary">Update</button> </a>
-                            <a href="prodelete.php? del_id = <?php echo $final['id'] ?>">
-                                <button class="btn btn-danger">Delete</button> </a>
+                            <a href="prodelete.php?delid=<?php echo $final['id'] ?>">
+                                <button class="btn btn-danger">Delete</button></a>
                             <hr>
                         <?php } ?>
                     </div>

@@ -6,7 +6,8 @@
 include ("../partials/db.php");
 include ("admin_partial/Head.php");
 include ("admin_partial/Header.php");
-include ("admin_partial/Aside.php")
+include ("admin_partial/Aside.php");
+
 
 
 
@@ -31,13 +32,12 @@ include ("admin_partial/Aside.php")
                 <div class="col-sm-6">
                     <form role="form" action="updateHandler.php" method="post" enctype="multipart/form-data">
                         <?php
-                        $new_id = $_GET['up_id'];
-                        $host = "localhost";
-                        $username = "root";
-                        $password = "";
-                        $dbname = "e-com";
 
-                        $conn = mysqli_connect($host,$username, $password, $dbname);
+
+                        include("partials/db.php");
+                        include ("admin/productshow.php");
+                        $new_id = $_GET['up_id'];
+
                         $set = "SELECT * FROM products where id='$new_id'";
                         $result = $conn->query($set);
                         $final = $result->fetch_assoc();
@@ -98,7 +98,7 @@ include ("admin_partial/Aside.php")
                         <!-- /.box-body -->
 
                         <div class="box-footer">
-                            <input type="hidden" name="form_id" value="<?php echo  $final['id']?>">
+                            <input type="text" name="form_id" value="<?php echo  $final['id']?>">
                             <button type="submit" name="update" class="btn btn-primary">Update</button>
                         </div>
                     </form>

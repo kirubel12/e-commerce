@@ -16,14 +16,20 @@
             <div class="input-group">
                 <input type="text" name="q" class="form-control" placeholder="Search...">
                 <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                    </button>
+                </span>
             </div>
         </form>
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
+            <li>
+                <a href="adminindex.php">
+                    <i class="fa fa-th"></i> <span>Home</span>
+                </a>
+
+            </li>
             <li>
                 <a href="categories.php">
                     <i class="fa fa-th"></i> <span>Categories</span>
@@ -31,22 +37,22 @@
 
             </li>
             <li>
-            <a href="products.php">
+                <a href="productshow.php">
                     <i class="fa fa-th"></i> <span>Products</span>
                 </a>
-                </li>
-                <li>
-            <a href="logout.php">
+            </li>
+            <li>
+                <a href="logout.php">
                     <i class="fa fa-th"></i> <span>Logout</span>
                 </a>
-                </li>
-            </ul>
-            <!-- /.control-sidebar-menu -->
+            </li>
+        </ul>
+        <!-- /.control-sidebar-menu -->
 
         </div>
         <!-- /.tab-pane -->
         <!-- Stats tab content -->
-       
+
         <!-- /.tab-pane -->
-    </div>
+        </div>
 </aside>

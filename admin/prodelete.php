@@ -4,12 +4,12 @@ $username = "root";
 $password = "";
 $dbname = "e-com";
 
-$conn = mysqli_connect($host,$username, $password, $dbname);
-$new_id = $_GET['del_id'];
-$set = "DELETE FROM products WHERE id ='$new_id'";
+$conn = mysqli_connect($host, $username, $password, $dbname);
+$newid = $_GET['delid'];
+$set = "DELETE FROM products WHERE id ='$newid'";
 
-if (mysqli_query($conn,$set)){
+if (mysqli_query($conn, $set)) {
     header("Location: productshow.php");
-}else{
+} else {
     header("Location:adminindex.php");
 }
