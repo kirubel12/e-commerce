@@ -34,7 +34,7 @@ include("admin_partial/Aside.php")
 
                         ?>
 
-                            <a href="proshow.php? pro_id = <?php echo $final['id'] ?>">
+                            <a href="proshow.php?pro_id=<?php echo $final['id'] ?>">
                                 <h3><?php echo $final["id"] ?> : <?php echo $final["name"] ?>
 
                                     <br>
